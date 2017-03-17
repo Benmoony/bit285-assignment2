@@ -1,0 +1,41 @@
+﻿@model Assignment2.ViewModels.CreateAccount
+
+@{
+    ViewBag.Title = "Create Account";
+}
+
+<h2>Create an Account</h2>
+
+@using (Html.BeginForm())
+{
+<div>
+    @Html.LabelFor(m => m.FirstName)
+    @Html.Editor("FirstName");
+</div>
+<div>
+    @Html.LabelFor(m => m.LastName)
+    @Html.Editor("LastName")
+</div>
+<div>
+    @Html.LabelFor(m => m.EmailAddress)
+    @Html.Editor("EmailAddress")
+</div>
+<div>
+    @Html.LabelFor(m => m.ProgramID)
+    @Html.DropDownListFor(mbox => mbox.ProgramID, new SelectList(ViewBag.Programs, "ProgramID", "ProgramName"));
+</div>
+<div>
+    @Html.LabelFor(m => m.emailCheck)
+    @Html.CheckBoxFor(m => m.emailCheck)
+</div>
+
+<div class="col-md-offset-2 col-md-10">
+    <input type="submit" value="Submit" class="btn btn-default" />
+</div>
+}
+
+<div>
+    @Html.ActionLink("Return to Login", "Login")
+</div>
+
+

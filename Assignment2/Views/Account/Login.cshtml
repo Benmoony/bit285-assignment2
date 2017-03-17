@@ -1,0 +1,27 @@
+﻿@model Assignment2.ViewModels.Login
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div>
+        @Html.LabelFor(m => m.UserName)
+        @Html.Editor("UserName")
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.Password("Password")
+    </div>
+    <div> @Html.ValidationMessageFor(model => model.Error, "")</div>
+
+    <div> @Html.ActionLink("need a new account?", "Create")</div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+}
